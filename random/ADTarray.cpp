@@ -16,7 +16,33 @@ void display(myarray arr){
     cout << endl << endl;
 }
 
+void append(myarray *arr,int x){
+    if(arr->length<arr->size){
+        arr->A[arr->length++]=x;
+    }
+}
 
+void insert(myarray *arr,int index, int x){
+    if(index>=0 && index <=arr->length){
+        for(int i=arr->length;i>index-1;i--){
+            arr->A[i]=arr->A[i-1];
+        }
+        arr->length++;
+        arr->A[index-1]=x;
+    }
+}
+
+void Delete(myarray *arr, int index){
+    if(index>=0 && index <arr->length){
+        arr->A[index-1]={0};
+        for(int i=(index-1);i<arr->length;i++){
+            arr->A[i]=arr->A[i+1];
+        }
+        arr->length--;
+    }
+        
+
+}
 
 int main(int argc, char const *argv[])
 {
@@ -42,6 +68,10 @@ int main(int argc, char const *argv[])
      }
      cout << endl << endl;
 
+
+    //  append(&a,4);
+    //  insert(&a,3,13);
+     Delete(&a,2);
      display(a);
 
     
