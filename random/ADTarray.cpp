@@ -71,7 +71,7 @@ int main(int argc, char const *argv[])
 
     //  append(&a,4);
     //  insert(&a,3,13);
-     Delete(&a,2);
+    //  Delete(&a,2);
      display(a);
 
     
