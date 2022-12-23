@@ -1,30 +1,50 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct myarray{
-    int *a;
+class myarray{
+    public:
+    int *A;
     int size;
     int length;
 };
 
-void createarray(struct myarray *a,int tsize,int usize){
-    (*a).size=tsize;
+void display(myarray arr){
+    cout << "elements are";
+    for(int i=0;i<arr.length;i++){
+        cout << " " << arr.A[i];
+    }
+    cout << endl << endl;
 }
+
+
 
 int main(int argc, char const *argv[])
 {
-    struct myarray marks;
-    {
-        /* data */
-    };
-    
-
+    myarray a; 
+    int n;
     cout << "enter size:";
-    cin >> size;
+    cin >> a.size;
 
-    a=new int[size];
+    a.A=new int[a.size];
+    a.length = 0;
+    cout << endl << endl;
+
+     cout << "enter number of elements:";
+
+     
+     cin >> n;
+
+     a.length=n;
+
+     cout << "enter elements:";
+     for(int i=0;i<n;i++){
+        cin >> a.A[i];
+     }
+     cout << endl << endl;
+
+     display(a);
+
     
-    createarray(&marks,100,20);
 
     return 0;
 }
