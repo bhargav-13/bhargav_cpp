@@ -16,7 +16,7 @@ public:
 	void create_account();	
 	void show_account() const;	
 	void modify();	
-	void dep(int);	
+	void dep(int);		
 	void draw(int);	
 	void report() const;	
 	int retacno() const;	

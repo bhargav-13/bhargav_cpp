@@ -6,7 +6,7 @@ class myarray{
     int *A;
     int size;
     int length;
-};
+};jjsvd
 
 void display(myarray arr){
     cout << "elements are";
