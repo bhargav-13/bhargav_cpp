@@ -7,10 +7,10 @@ void Print(T& vec, int n, string s){
     cout << s << ": [" << flush;
     for (int i=0; i<n; i++){
         cout << vec[i] << flush;
-        this_thread::sleep_for(chrono::seconds(0.3));
+        
         if (i < n-1){
             cout << ", " << flush;
-            this_thread::sleep_for(chrono::seconds(0.3));
+            this_thread::sleep_for(chrono::milliseconds(100));
         }
     }
     cout << "]" << endl;
