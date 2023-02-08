@@ -37,11 +37,10 @@ int partition(int arr[], int s, int e){
         j--;
         }
 
-        if(i < pivotindex && j > pivotindex){
-            swap(arr[i], arr[j]);
-            i++;
-            j--;
-        }
+        swap(arr[i], arr[j]);
+        i++;
+        j--;
+        
     }
     return pivotindex; 
 }
@@ -58,7 +57,7 @@ void Quicksort(int arr[], int s, int e){
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {5,8,15,2,6,89};
+    int arr[] = {5,5,3,10000,8,15,2,6,89};
     int size = sizeof(arr)/sizeof(arr[0]);
     cout << "array is: ";
     print(arr,size);
