@@ -38,7 +38,9 @@ int partition(int arr[], int s, int e){
         }
 
         if(i < pivotindex && j > pivotindex){
-            swap(arr[i++], arr[j--]);
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
         }
     }
     return pivotindex; 
