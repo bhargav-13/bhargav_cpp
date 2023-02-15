@@ -20,10 +20,10 @@ void display(node* &head)
    }
    node* temp = head;
    while(temp != NULL){
-    cout << temp -> data << " ";
+    cout << temp -> data << " -> ";
     temp = temp -> next;
    }
-   cout << endl;
+   cout << "NULL" << endl;
 }
 
 void insertbyTail(node* &tail, int data){
@@ -32,18 +32,31 @@ void insertbyTail(node* &tail, int data){
     tail = temp;
 }
 
-void insert(node* &head, int pos, int data){
-    node* temp = new node(data);
-    if(pos == 1){
-        temp -> next = head;
-        head = temp;
+void insert(node* &head,node* &tail, int pos, int data){
+    node* temp = head;
+    int count = 1;
+    if(pos == 0){
+        node* nodetoins = new node(data);
+        nodetoins -> next = head;
+        head = nodetoins;
     }
-    else{
-    for(int i=0; i<pos-1; i++){
-        head = head -> next;
-        temp -> next = head -> next;
-        head -> next = temp; 
+
+        while(count<pos-1)
+        {
+          temp = temp -> next;
+          count++;
         }
+
+     if(temp -> next == NULL)
+    {
+        //cout << "inside tail" << endl;
+        insertbyTail(tail,data);
+        }
+    else
+    {
+        node* nodetoins = new node(data);
+        nodetoins -> next = temp -> next;
+        temp -> next = nodetoins;
     }
 
 }
@@ -53,11 +66,20 @@ void insert(node* &head, int pos, int data){
 int main(int argc, char const *argv[])
 {
         node* n1 = new node(10);
-        node* n2 = new node(20);
-        node* n3 = new node(30);
+
         node* head  = n1;
-        n1 -> next = n2;
-        n2 -> next = n3;
-        insert(head, 3, 66);
+        node* tail  = n1;
+
+        insert(head,tail,2, 22);
+        insert(head,tail,3, 88);
+        insert(head,tail,4, 13);
+        insert(head,tail,5, 6);
+        insert(head,tail,0, 55);
+        
+        
+
+
+        
+
         display(head);
 }
