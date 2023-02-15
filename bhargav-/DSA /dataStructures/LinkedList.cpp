@@ -19,11 +19,13 @@ void display(node* &head)
     return ;
    }
    node* temp = head;
+   cout << "[ ";
    while(temp != NULL){
-    cout << temp -> data << " -> ";
+    cout << temp -> data << " -> " << flush;
+    this_thread::sleep_for(chrono::milliseconds(500));
     temp = temp -> next;
    }
-   cout << "NULL" << endl;
+   cout << "NULL ]" << endl;
 }
 
 void insertbyTail(node* &tail, int data){
@@ -75,6 +77,7 @@ int main(int argc, char const *argv[])
         insert(head,tail,4, 13);
         insert(head,tail,5, 6);
         insert(head,tail,0, 55);
+        insert(head,tail,3, 155);
         
         
 
