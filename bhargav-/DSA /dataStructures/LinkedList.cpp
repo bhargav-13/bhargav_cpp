@@ -22,7 +22,7 @@ void display(node* &head)
    cout << "[ ";
    while(temp != NULL){
     cout << temp -> data << " -> " << flush;
-    this_thread::sleep_for(chrono::milliseconds(500));
+    this_thread::sleep_for(chrono::milliseconds(300));
     temp = temp -> next;
    }
    cout << "NULL ]" << endl;
@@ -96,7 +96,35 @@ p=p->next;
 return 1;
 }
 
+void removeDuplicats(node* &head){
+      node* p = head;
+      node* q = head->next;
 
+      while(p->next != NULL){
+        if(p->data == q->data){
+            p -> next = q -> next;
+            delete q;
+            q = p->next;
+        }
+        else{
+            p = q;  
+            q = q->next;
+        }
+      }
+}
+
+void reverseLL(node* &head){
+    node* p = head;
+    node* q = head;
+
+    while(q->next != NULL){
+        q = q->next;
+    }
+    head = p->next;
+    q->next = p;
+    p->next = NULL;
+
+}
 
 int main(int argc, char const *argv[])
 {
@@ -104,16 +132,27 @@ int main(int argc, char const *argv[])
         node* head  = n;
         node* tail  = n;
 
+        //insert at last 
         insertbyTail(tail, 20);
         insertbyTail(tail, 30);
         insertbyTail(tail, 40);
         insertbyTail(tail, 50);
         insertbyTail(tail, 60);
+        insertbyTail(tail, 60);
 
+        // insert at position
         insert(head, tail, 5, 45);
         
+        //delete
         deletebyIndex(head, 4);
+        
+        //remove all duplicates
+        removeDuplicats(head);
+        
+        // reverse linked list
+        reverseLL(head);
 
+        //weather list is sorted or not
         isSorted(head)?(cout << "sorted" << endl) : (cout << "not sorted" << endl);
         display(head);
 }
