@@ -63,26 +63,57 @@ void insert(node* &head,node* &tail, int pos, int data){
 
 }
 
+void deletebyIndex(node* &head, int index){
+       node* temp = head;
+       node* q = NULL;
+       int count = 1;
+       if(index == 0){
+          head = head -> next;
+          temp -> next = NULL;
+          delete temp;
+       }
+       while(count<index)
+        {
+          q = temp;
+          temp = temp -> next;
+          count++;
+        }
+        q -> next = temp -> next; 
+        temp -> next = NULL;
+        delete temp;        
+}
+int isSorted(node *p)
+{
+int x=-65536;
+
+while(p!=NULL)
+{
+if(p->data < x)
+return 0;
+x=p->data;
+p=p->next;
+}
+return 1;
+}
+
 
 
 int main(int argc, char const *argv[])
 {
-        node* n1 = new node(10);
+        node* n = new node(10);
+        node* head  = n;
+        node* tail  = n;
 
-        node* head  = n1;
-        node* tail  = n1;
+        insertbyTail(tail, 20);
+        insertbyTail(tail, 30);
+        insertbyTail(tail, 40);
+        insertbyTail(tail, 50);
+        insertbyTail(tail, 60);
 
-        insert(head,tail,2, 22);
-        insert(head,tail,3, 88);
-        insert(head,tail,4, 13);
-        insert(head,tail,5, 6);
-        insert(head,tail,0, 55);
-        insert(head,tail,3, 155);
+        insert(head, tail, 5, 45);
         
-        
+        deletebyIndex(head, 4);
 
-
-        
-
+        isSorted(head)?(cout << "sorted" << endl) : (cout << "not sorted" << endl);
         display(head);
 }
