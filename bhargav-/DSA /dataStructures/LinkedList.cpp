@@ -115,14 +115,16 @@ void removeDuplicats(node* &head){
 
 void reverseLL(node* &head){
     node* p = head;
-    node* q = head;
+    node* q = NULL;
+    node* r = NULL;
 
-    while(q->next != NULL){
-        q = q->next;
+    while(p!= NULL){
+        r = q;
+        q = p;
+        p = p->next;
+        q->next = r;
     }
-    head = p->next;
-    q->next = p;
-    p->next = NULL;
+    head = q;
 
 }
 
@@ -138,21 +140,16 @@ int main(int argc, char const *argv[])
         insertbyTail(tail, 40);
         insertbyTail(tail, 50);
         insertbyTail(tail, 60);
-        insertbyTail(tail, 60);
 
-        // insert at position
-        insert(head, tail, 5, 45);
+    //    insert(head, tail, 5, 45);
         
-        //delete
-        deletebyIndex(head, 4);
+//        deletebyIndex(head, 4);
         
-        //remove all duplicates
-        removeDuplicats(head);
+//        removeDuplicats(head);
         
-        // reverse linked list
-        reverseLL(head);
+//        reverseLL(head);
 
-        //weather list is sorted or not
-        isSorted(head)?(cout << "sorted" << endl) : (cout << "not sorted" << endl);
+       
+        //isSorted(head)?(cout << "sorted" << endl) : (cout << "not sorted" << endl);
         display(head);
 }
