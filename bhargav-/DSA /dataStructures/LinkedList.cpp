@@ -141,13 +141,13 @@ int main(int argc, char const *argv[])
         insertbyTail(tail, 50);
         insertbyTail(tail, 60);
 
-    //    insert(head, tail, 5, 45);
+//        insert(head, tail, 5, 45);
         
 //        deletebyIndex(head, 4);
         
 //        removeDuplicats(head);
         
-//        reverseLL(head);
+       reverseLL(head);
 
        
         //isSorted(head)?(cout << "sorted" << endl) : (cout << "not sorted" << endl);
