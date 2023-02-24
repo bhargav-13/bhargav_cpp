@@ -118,7 +118,7 @@ void deleteNode(int position, Node* & head) {
     }
     else
     {
-        Node* curr = head;
+            Node* curr = head;
         Node* prev = NULL;
 
         int cnt = 1;
