@@ -7,7 +7,6 @@ class Node {
     Node* prev;
     Node* next;
 
-    //constructor
     Node(int d ) {
         this-> data = d;
         this->prev = NULL;
@@ -24,7 +23,6 @@ class Node {
     }
 };
 
-//traversing a linked list
 void print(Node* head) {
     Node* temp  = head ;
     cout << "[ ";
@@ -36,7 +34,7 @@ void print(Node* head) {
     cout << " NULL ]" << endl;
 }
 
-//gives length of Linked List
+
 int getLength(Node* head) {
     int len = 0;
     Node* temp  = head ;
@@ -50,7 +48,6 @@ int getLength(Node* head) {
 }
 void insertAtHead(Node* &tail, Node* &head, int d) {
 
-    //empty list
     if(head == NULL) {
         Node* temp = new Node(d);
         head = temp;
@@ -83,7 +80,7 @@ void insertAtTail(Node* &tail,Node* &head, int d) {
 
 void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
     
-    //insert at Start
+
     if(position == 1) {
         insertAtHead(tail,head, d);
         return;
@@ -97,13 +94,11 @@ void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
         cnt++;
     }
 
-    //inserting at Last Position
     if(temp -> next == NULL) {
         insertAtTail(tail,head,d);
         return ;
     }
 
-    //creating a node for d
     Node* nodeToInsert = new Node(d);
 
     nodeToInsert ->next = temp -> next;
@@ -114,7 +109,6 @@ void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
 
 void deleteNode(int position, Node* & head) { 
 
-    //deleting first or start node
     if(position == 1) {
         Node* temp = head;
         temp -> next -> prev = NULL;
@@ -124,7 +118,6 @@ void deleteNode(int position, Node* & head) {
     }
     else
     {
-        //deleting any middle node or last node
         Node* curr = head;
         Node* prev = NULL;
 
