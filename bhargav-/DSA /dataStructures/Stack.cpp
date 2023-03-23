@@ -44,7 +44,6 @@ class Stack{
     void print(){
         while(top != -1){
             cout << arr[top] << " "<< flush;
-            this_thread::sleep_for(chrono::milliseconds(200));
             top--;
         }
     }
